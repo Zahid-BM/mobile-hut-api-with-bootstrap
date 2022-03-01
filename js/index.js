@@ -46,7 +46,7 @@ const displayPhone = phones => {
          <div class="col h-100">
             <div class="card h-100">
                 <img src="${phone.image}" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-body bg-light">
                     <h5 class="card-title">${phone.brand}</h5>
                      <h6 class="card-subtitle mb-2 text-muted">${phone.phone_name}</h6>
                      <button onclick = "phoneDetails('${phone.slug}')" class="btn btn-warning text-white fw-bold" > Details</button>
@@ -78,8 +78,8 @@ const displayPhoneDetails = displayDetails => {
     <div class="col h-100">
             <div class="card h-100">
                 <img src="${displayDetails.image}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title text-warning">${displayDetails.brand} ${displayDetails.name} </h3>
+                <div class="card-body bg-warning">
+                    <h3 class="card-title">${displayDetails.brand} ${displayDetails.name} </h3>
                         <p>${displayDetails?.releaseDate ?? "Release Date is unavailable"}</p>
      <ul>
                          <u><h5 class = "fw-bolder text-secondary ">Main Features</h5></u>
