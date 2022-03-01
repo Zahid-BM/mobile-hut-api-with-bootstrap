@@ -34,24 +34,20 @@ const phoneDetails = phoneIdentity => {
         .then(data => displayPhoneDetails(data.data));
 }
 const displayPhoneDetails = displayDetails => {
-    // console.log(displayDetails.mainFeatures.chipSet);
+    console.log(displayDetails);
     const phoneDetails = document.getElementById('details');
     const foundDetails = document.createElement('div');
     foundDetails.innerHTML = `
     <div class="col h-100">
             <div class="card h-100">
-                <img src="${phone.image}" class="card-img-top" alt="...">
+                <img src="${displayDetails.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${phone.brand}</h5>
-                     <h6 class="card-subtitle mb-2 text-muted">${phone.phone_name}</h6>
-                     <button onclick = "phoneDetails('${phone.slug}')" class="btn btn-warning text-white fw-bold" > Details</button>
+                    <h5 class="card-title">${displayDetails.brand} ${displayDetails.name} </h5>
                 </div>
             </div>
   </div> 
-    
-    
-    
-    `
+    `;
+    phoneDetails.appendChild(foundDetails);
 }
 
 
