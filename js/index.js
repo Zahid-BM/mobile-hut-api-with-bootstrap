@@ -1,7 +1,7 @@
 /* onclick function to fetch data */
 const searchPhone = () => {
     if (input.value.length == '') {
-        alert('Wrong or empty input !!! Please, input correctly and try again.')
+        alert('No input !!! Please, input correctly to find the desired phone.')
     }
     else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
