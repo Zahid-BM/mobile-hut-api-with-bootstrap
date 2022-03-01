@@ -79,20 +79,33 @@ const displayPhoneDetails = displayDetails => {
             <div class="card h-100">
                 <img src="${displayDetails.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${displayDetails.brand} ${displayDetails.name} </h5>
+                    <h3 class="card-title text-warning">${displayDetails.brand} ${displayDetails.name} </h3>
                         <p>${displayDetails?.releaseDate ?? "Release Date is unavailable"}</p>
-                        <p>
-                        <b> <u>Specifications :</u></b> <br> <br>
-                  <u>Chip set</u> - ${displayDetails.mainFeatures.chipSet}<br> 
-                  <u>Display </u>- ${displayDetails.mainFeatures.displaySize}<br> 
-                  <u>Memory</u> - ${displayDetails.mainFeatures.memory}<br> 
-                  <u>Sensors</u> - ${displayDetails.mainFeatures.sensors}<br>
-                <u>Others</u> - Bluetooth: ${displayDetails.others?.Bluetooth ?? "No"}, GPS: ${displayDetails.others?.GPS ?? "No"}, NFC: ${displayDetails.others?.NFC ?? "No"} , Radio: ${displayDetails.others?.Radio ?? "No"}, USB: ${displayDetails.others?.USB ?? "No"}, WLAN: ${displayDetails.others?.WLAN ?? "No"}
- 
-                        </p>
+     <ul>
+                         <u><h5 class = "fw-bolder text-secondary ">Main Features</h5></u>
+        <li>  <b>Chip set : </b>${displayDetails.mainFeatures.chipSet}</li>
+        <li> <b>Display :</b> ${displayDetails.mainFeatures.displaySize}</li>
+        <li>  <b>Memory :</b> ${displayDetails.mainFeatures.memory}</li>
+    </ul>
+
+    <ul>
+                       <u> <h5 class = "fw-bolder text-secondary">Sensors</h5></u>
+        <li>${displayDetails.mainFeatures.sensors}</li>
+    </ul>
+
+ <ul>
+                         <u><h5 class = "fw-bolder text-secondary">Others</h5></u>
+        <li><b>Bluetooth: </b> ${displayDetails.others?.Bluetooth ?? "No"}</li>
+        <li><b>GPS: </b> ${displayDetails.others?.GPS ?? "No"}</li>
+        <li><b>NFC: </b> ${displayDetails.others?.NFC ?? "No"}</li>
+        <li> <b>Radio: </b> ${displayDetails.others?.Radio ?? "No"}</li>
+        <li><b>USB: </b> ${displayDetails.others?.USB ?? "No"}</li>
+        <li><b>WLAN: </b> ${displayDetails.others?.WLAN ?? "No"}</li>
+   <ul>
                 </div>
             </div>
   </div> 
+ 
     `;
     phoneDetails.appendChild(foundDetails);
 }
