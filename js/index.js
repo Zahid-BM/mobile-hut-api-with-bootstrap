@@ -80,14 +80,14 @@ const displayPhoneDetails = displayDetails => {
                 <img src="${displayDetails.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${displayDetails.brand} ${displayDetails.name} </h5>
-                        <p>${displayDetails.releaseDate}</p>
+                        <p>${displayDetails?.releaseDate ?? "Release Date is unavailable"}</p>
                         <p>
                         <b> <u>Specifications :</u></b> <br> <br>
                   <u>Chip set</u> - ${displayDetails.mainFeatures.chipSet}<br> 
                   <u>Display </u>- ${displayDetails.mainFeatures.displaySize}<br> 
                   <u>Memory</u> - ${displayDetails.mainFeatures.memory}<br> 
                   <u>Sensors</u> - ${displayDetails.mainFeatures.sensors}<br>
-                <u>Others</u> - Bluetooth: ${displayDetails.others?.Bluetooth}, GPS: ${displayDetails.others?.GPS}, NFC: ${displayDetails.others?.Bluetooth}, Radio: ${displayDetails.others?.Radio}, USB: ${displayDetails.others?.USB}, WLAN: ${displayDetails.others?.WLAN}
+                <u>Others</u> - Bluetooth: ${displayDetails.others?.Bluetooth ?? "No"}, GPS: ${displayDetails.others?.GPS ?? "No"}, NFC: ${displayDetails.others?.NFC ?? "No"} , Radio: ${displayDetails.others?.Radio ?? "No"}, USB: ${displayDetails.others?.USB ?? "No"}, WLAN: ${displayDetails.others?.WLAN ?? "No"}
  
                         </p>
                 </div>
