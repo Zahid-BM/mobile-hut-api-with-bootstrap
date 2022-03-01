@@ -1,9 +1,11 @@
+/* onclick function to fetch data */
 const searchPhone = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhone(data.data));
 }
+/* function for displaying found data on UI  */
 const displayPhone = phones => {
     const display = document.getElementById('display');
     phones.forEach(phone => {
