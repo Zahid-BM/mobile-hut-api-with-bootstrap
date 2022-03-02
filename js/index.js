@@ -4,18 +4,23 @@ const searchPhone = () => {
         alert('No input !!! Please, input correctly to find the desired phone.')
     }
     else {
+        const input = document.getElementById('input');
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
         fetch(url)
             .then(res => res.json())
             .then(data => displayPhone(data.data.splice(0, 20))); /* set phpne qtty will be shown up to 20 */
         /*  clear input field  */
-        input.value = '';
+        input.value = ''; const loading = () => {
+            const load = document.getElementById('loading').style.display = 'block';
+        }
+        loading();
         /* clear previous searched phones that were in desplay */
         const display = document.getElementById('display');
         display.innerHTML = ''; /* this is preferable */
         /* clear previous phone details on UI */
         const phoneDetails = document.getElementById('details');
         phoneDetails.innerHTML = '';
+      
     }
 }
 /* function for displaying found data on UI  */
