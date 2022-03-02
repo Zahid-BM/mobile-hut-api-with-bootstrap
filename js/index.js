@@ -31,7 +31,6 @@ const searchPhone = () => {
 }
 /* function for displaying found data on UI  */
 const displayPhone = phones => {
-    console.log(phones);
     const display = document.getElementById('display');
     /* when searched item is unavailable */
     if (phones.length == 0) {
