@@ -11,9 +11,9 @@ const searchPhone = () => {
         alert('No input !!! Please, input correctly to find the desired phone.')
     }
     else {
-        const input = document.getElementById('input');
         /* loading enabled after clicking the search button*/
         loading('d-none', 'd-block');
+        const input = document.getElementById('input');
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
         fetch(url)
             .then(res => res.json())
@@ -21,13 +21,11 @@ const searchPhone = () => {
         /*  clear input field  */
         input.value = '';
         /* clear previous searched phones that were in desplay */
-
         const display = document.getElementById('display');
-        display.innerHTML = ''; /* this is preferable */
+        display.innerHTML = '';
         /* clear previous phone details on UI */
         const phoneDetails = document.getElementById('details');
         phoneDetails.innerHTML = '';
-
     }
 
 }
@@ -35,6 +33,7 @@ const searchPhone = () => {
 const displayPhone = phones => {
     console.log(phones);
     const display = document.getElementById('display');
+    /* when searched item is unavailable */
     if (phones.length == 0) {
         const div = document.createElement('div');
         div.classList.add('mx-auto', 'w-100', 'h-50');
@@ -53,9 +52,9 @@ const displayPhone = phones => {
         loading('d-block', 'd-none');
 
     }
+    /* when searched item is available */
     else {
         phones?.forEach(phone => {
-            // console.log(phone);
             const foundPhones = document.createElement('div');
             foundPhones.innerHTML = `
          <div class="col h-100">
@@ -77,7 +76,6 @@ const displayPhone = phones => {
 }
 /* function for on click fetching phone data */
 const phoneDetails = phoneIdentity => {
-    console.log(phoneIdentity);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneIdentity}`;
     fetch(url)
         .then(res => res.json())
@@ -88,7 +86,6 @@ const phoneDetails = phoneIdentity => {
 }
 /* fucntion  for showing phone data on UI */
 const displayPhoneDetails = displayDetails => {
-    console.log(displayDetails);
     const phoneDetails = document.getElementById('details');
     const foundDetails = document.createElement('div');
     foundDetails.innerHTML = `
