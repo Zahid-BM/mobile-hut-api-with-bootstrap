@@ -1,3 +1,10 @@
+/* function for spinner page loading */
+const loading = (remove, add) => {
+    const load = document.getElementById('loading');
+    load.classList.remove(remove);
+    load.classList.add(add);
+}
+
 /* onclick function to fetch data */
 const searchPhone = () => {
     if (input.value.length == '') {
@@ -5,23 +12,24 @@ const searchPhone = () => {
     }
     else {
         const input = document.getElementById('input');
+        /* loading enabled after clicking the search button*/
+        loading('d-none', 'd-block');
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
         fetch(url)
             .then(res => res.json())
             .then(data => displayPhone(data.data.splice(0, 20))); /* set phpne qtty will be shown up to 20 */
         /*  clear input field  */
-        input.value = ''; const loading = () => {
-            const load = document.getElementById('loading').style.display = 'block';
-        }
-        loading();
+        input.value = '';
         /* clear previous searched phones that were in desplay */
+
         const display = document.getElementById('display');
         display.innerHTML = ''; /* this is preferable */
         /* clear previous phone details on UI */
         const phoneDetails = document.getElementById('details');
         phoneDetails.innerHTML = '';
-      
+
     }
+
 }
 /* function for displaying found data on UI  */
 const displayPhone = phones => {
@@ -41,6 +49,8 @@ const displayPhone = phones => {
     
     `;
         display.appendChild(div);
+        /* loading disabled after apearing message on UI */
+        loading('d-block', 'd-none');
 
     }
     else {
@@ -60,11 +70,12 @@ const displayPhone = phones => {
   </div> 
         `;
             display.appendChild(foundPhones);
+            /* loading disabled after apearing found phones on UI */
+            loading('d-block', 'd-none');
         })
     }
-
-
 }
+/* function for on click fetching phone data */
 const phoneDetails = phoneIdentity => {
     console.log(phoneIdentity);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneIdentity}`;
@@ -75,6 +86,7 @@ const phoneDetails = phoneIdentity => {
     const phoneDetails = document.getElementById('details');
     phoneDetails.innerHTML = '';
 }
+/* fucntion  for showing phone data on UI */
 const displayPhoneDetails = displayDetails => {
     console.log(displayDetails);
     const phoneDetails = document.getElementById('details');
