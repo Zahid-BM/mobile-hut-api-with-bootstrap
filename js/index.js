@@ -17,7 +17,7 @@ const searchPhone = () => {
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => displayPhone(data.data.splice(0, 20))); /* set phone qtty will be shown up to 20 */
+            .then(data => displayPhone(data?.data.splice(0, 20))); /* set phone qtty will be shown up to 20 */
         /*  clear input field  */
         input.value = '';
         /* clear previous searched phones that were on UI display */
@@ -58,11 +58,11 @@ const displayPhone = phones => {
             foundPhones.innerHTML = `
          <div class="col h-100">
             <div class="card h-100">
-                <img src="${phone.image}" class="card-img-top" alt="...">
+                <img src="${phone?.image ?? "Official image not published"}" class="card-img-top" alt="...">
                 <div class="card-body bg-light">
-                    <h5 class="card-title">${phone.brand}</h5>
-                     <h6 class="card-subtitle mb-2 text-muted">${phone.phone_name}</h6>
-                     <button onclick = "phoneDetails('${phone.slug}')" class="btn btn-warning text-white fw-bold" > Details</button>
+                    <h5 class="card-title">${phone?.brand}</h5>
+                     <h6 class="card-subtitle mb-2 text-muted">${phone?.phone_name}</h6>
+                     <button onclick = "phoneDetails('${phone?.slug}')" class="btn btn-warning text-white fw-bold" > Details</button>
                 </div>
             </div>
   </div> 
@@ -78,7 +78,7 @@ const phoneDetails = phoneIdentity => {
     const url = `https://openapi.programming-hero.com/api/phone/${phoneIdentity}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayPhoneDetails(data.data));
+        .then(data => displayPhoneDetails(data?.data));
     /* clear previous data of phone details */
     const phoneDetails = document.getElementById('details');
     phoneDetails.innerHTML = '';
@@ -90,20 +90,20 @@ const displayPhoneDetails = displayDetails => {
     foundDetails.innerHTML = `
     <div class="col h-100">
             <div class="card h-100">
-                <img src="${displayDetails.image}" class="card-img-top" alt="...">
+                <img src="${displayDetails?.image ?? "Official image not published"}" class="card-img-top" alt="...">
                 <div class="card-body bg-warning">
-                    <h3 class="card-title">${displayDetails.brand} ${displayDetails.name} </h3>
-                        <p>${displayDetails?.releaseDate ?? "Release Date is unavailable"}</p>
+                    <h3 class="card-title">${displayDetails?.brand} ${displayDetails?.name} </h3>
+                        <p>${displayDetails?.releaseDate ?? "Official release date is unavailable"}</p>
      <ul>
                          <u><h5 class = "fw-bolder text-secondary ">Main Features</h5></u>
-        <li>  <b>Chip set : </b>${displayDetails.mainFeatures.chipSet}</li>
-        <li> <b>Display :</b> ${displayDetails.mainFeatures.displaySize}</li>
-        <li>  <b>Memory :</b> ${displayDetails.mainFeatures.memory}</li>
+        <li>  <b>Chip set : </b>${displayDetails.mainFeatures?.chipSet ?? "No"}</li>
+        <li> <b>Display :</b> ${displayDetails.mainFeatures?.displaySize ?? "No Official information"}</li>
+        <li>  <b>Memory :</b> ${displayDetails.mainFeatures?.memory ?? "No"}</li>
     </ul>
 
     <ul>
                        <u> <h5 class = "fw-bolder text-secondary">Sensors</h5></u>
-        <li>${displayDetails.mainFeatures.sensors}</li>
+        <li>${displayDetails.mainFeatures?.sensors ?? "No"}</li>
     </ul>
 
  <ul>
