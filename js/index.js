@@ -39,7 +39,7 @@ const displayPhone = phones => {
 
     }
     else {
-        phones.forEach(phone => {
+        phones?.forEach(phone => {
             // console.log(phone);
             const foundPhones = document.createElement('div');
             foundPhones.innerHTML = `
@@ -53,7 +53,7 @@ const displayPhone = phones => {
                 </div>
             </div>
   </div> 
-        `
+        `;
             display.appendChild(foundPhones);
         })
     }
