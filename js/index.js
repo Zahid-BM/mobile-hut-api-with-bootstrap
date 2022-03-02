@@ -17,10 +17,10 @@ const searchPhone = () => {
         const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => displayPhone(data.data.splice(0, 20))); /* set phpne qtty will be shown up to 20 */
+            .then(data => displayPhone(data.data.splice(0, 20))); /* set phone qtty will be shown up to 20 */
         /*  clear input field  */
         input.value = '';
-        /* clear previous searched phones that were in desplay */
+        /* clear previous searched phones that were on UI display */
         const display = document.getElementById('display');
         display.innerHTML = '';
         /* clear previous phone details on UI */
@@ -47,7 +47,7 @@ const displayPhone = phones => {
     
     `;
         display.appendChild(div);
-        /* loading disabled after apearing message on UI */
+        /* loading disabled after appearing message on UI */
         loading('d-block', 'd-none');
 
     }
@@ -68,7 +68,7 @@ const displayPhone = phones => {
   </div> 
         `;
             display.appendChild(foundPhones);
-            /* loading disabled after apearing found phones on UI */
+            /* loading disabled after appearing found phones on UI */
             loading('d-block', 'd-none');
         })
     }
