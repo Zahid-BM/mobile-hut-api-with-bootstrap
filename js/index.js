@@ -90,30 +90,30 @@ const displayPhoneDetails = displayDetails => {
     foundDetails.innerHTML = `
     <div class="col h-100">
             <div class="card h-100">
-                <img src="${displayDetails?.image ?? "Official image not published"}" class="card-img-top" alt="...">
+                <img src="${displayDetails?.image ? displayDetails?.image : "Official image not published"}" class="card-img-top" alt="...">
                 <div class="card-body bg-warning">
                     <h3 class="card-title">${displayDetails?.brand} ${displayDetails?.name} </h3>
-                        <p>${displayDetails?.releaseDate ?? "Official release date is unavailable"}</p>
+                        <p>${displayDetails.releaseDate ? displayDetails.releaseDate : 'Coming Soon.....'}</p>
      <ul>
                          <u><h5 class = "fw-bolder text-secondary ">Main Features</h5></u>
-        <li>  <b>Chip set : </b>${displayDetails.mainFeatures?.chipSet ?? "No"}</li>
-        <li> <b>Display :</b> ${displayDetails.mainFeatures?.displaySize ?? "No Official information"}</li>
-        <li>  <b>Memory :</b> ${displayDetails.mainFeatures?.memory ?? "No"}</li>
+        <li>  <b>Chip set : </b>${displayDetails.mainFeatures?.chipSet ? displayDetails.mainFeatures?.chipSet : "No"}</li>
+        <li> <b>Display :</b> ${displayDetails.mainFeatures?.displaySize ? displayDetails.mainFeatures?.displaySize : "No Official information"}</li>
+        <li>  <b>Memory :</b> ${displayDetails.mainFeatures?.memory ? displayDetails.mainFeatures?.memory : "No"}</li>
     </ul>
 
     <ul>
                        <u> <h5 class = "fw-bolder text-secondary">Sensors</h5></u>
-        <li>${displayDetails.mainFeatures?.sensors ?? "No"}</li>
+        <li>${displayDetails.mainFeatures?.sensors ? displayDetails.mainFeatures?.sensors : "No"}</li>
     </ul>
 
  <ul>
                          <u><h5 class = "fw-bolder text-secondary">Others</h5></u>
-        <li><b>Bluetooth: </b> ${displayDetails.others?.Bluetooth ?? "No"}</li>
-        <li><b>GPS: </b> ${displayDetails.others?.GPS ?? "No"}</li>
-        <li><b>NFC: </b> ${displayDetails.others?.NFC ?? "No"}</li>
-        <li> <b>Radio: </b> ${displayDetails.others?.Radio ?? "No"}</li>
-        <li><b>USB: </b> ${displayDetails.others?.USB ?? "No"}</li>
-        <li><b>WLAN: </b> ${displayDetails.others?.WLAN ?? "No"}</li>
+        <li><b>Bluetooth: </b> ${displayDetails.others?.Bluetooth ? displayDetails.others?.Bluetooth : 'No'}</li>
+        <li><b>GPS: </b> ${displayDetails.others?.GPS ? displayDetails.others?.GPS : "No"}</li>
+        <li><b>NFC: </b> ${displayDetails.others?.NFC ? displayDetails.others?.NFC : "No"}</li>
+        <li> <b>Radio: </b> ${displayDetails.others?.Radio ? displayDetails.others?.Radio : "No"}</li>
+        <li><b>USB: </b> ${displayDetails.others?.USB ? displayDetails.others?.USB : "No"}</li>
+        <li><b>WLAN: </b> ${displayDetails.others?.WLAN ? displayDetails.others?.USB : "No"}</li>
    <ul>
                 </div>
             </div>
